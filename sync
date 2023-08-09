@@ -6,10 +6,10 @@ BRANCH=
 # ADDITIONAL_BRANCH=
 
 function tg_sendText() {
-curl -s "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+curl -s "https://api.telegram.org/bot6133198808:AAFaaSzFii9CaW0mVQl-9i-QnKoUC38E7Y4/sendMessage" \
 -d "parse_mode=html" \
 -d text="${1}" \
--d chat_id=$CHAT_ID \
+-d chat_id=1214193595 \
 -d "disable_web_page_preview=true"
 }
 
@@ -32,7 +32,7 @@ cd /tmp/rom
 tg_sendText "Downloading sources.."
 
 # Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
-repo init --no-repo-verify --depth=1 -u $MANIFEST -b $BRANCH -g default,-device,-mips,-darwin,-notdefault
+repo init --no-repo-verify --depth=1 -u https://github.com/crdroidandroid/android.git -b 13.0 -g default,-device,-mips,-darwin,-notdefault
 
 # Clone local manifest! So that no need to manually git clone repos or change hals, you can use normal git clone or rm and re clone, they will cost little more time, and you may get timeout! Let's make it quit and depth=1 too.
 #git clone $ADDITIONAL_MANIFEST --depth 1 -b $ADDITIONAL_BRANCH .repo/local_manifests

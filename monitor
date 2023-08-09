@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function tg_sendText() {
-curl -s "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+curl -s "https://api.telegram.org/bot6133198808:AAFaaSzFii9CaW0mVQl-9i-QnKoUC38E7Y4/sendMessage" \
 -d "parse_mode=html" \
 -d text="${1}" \
 -d chat_id=$CHAT_ID \

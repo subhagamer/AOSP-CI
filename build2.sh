@@ -1,10 +1,10 @@
 #!/bin/bash
 
 function tg_sendText() {
-curl -s "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+curl -s "https://api.telegram.org/bot6133198808:AAFaaSzFii9CaW0mVQl-9i-QnKoUC38E7Y4/sendMessage" \
 -d "parse_mode=html" \
 -d text="${1}" \
--d chat_id=$CHAT_ID \
+-d chat_id8=1214193595 \
 -d "disable_web_page_preview=true"
 }
 
@@ -17,7 +17,7 @@ cd /tmp/rom # Depends on where source got synced
 tg_sendText "Lunching"
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_a10-userdebug
+lunch lineage_RMX3031-user
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
@@ -33,10 +33,11 @@ tg_sendText "Starting Compilation.."
 #mka test-api-stubs-docs -j8
 #mka bacon -j8 | tee build.txt
 
-make bacon -j28 | tee build.txt
+make bacon -j8 | tee build.txt
 
 (ccache -s && echo '' && free -h && echo '' && df -h && echo '' && ls -a out/target/product/a10/) | tee final_monitor.txt
 sleep 1s
 tg_sendFile "final_monitor.txt"
 sleep 2s
 tg_sendFile "build.txt"
+
